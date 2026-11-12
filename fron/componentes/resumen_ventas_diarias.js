@@ -1,6 +1,6 @@
 const pathResumenDiario = "/api/v1/resumen/ventas-diarias?desde=2026-10-01&hasta=2026-11-30";
 
-// Función genérica fetch integrada para asegurar la conexión
+
 async function api(path, options = {}) {
     const response = await fetch(path, {
         headers: { 'Content-Type': 'application/json', ...options.headers },

@@ -1,7 +1,7 @@
-// Ruta del endpoint para consultar una venta y sus detalles por ID
-const pathDetalleVenta = "/api/v1/ventas/1"; // Puedes cambiar el '1' por el ID que desees consultar
+// Ruta del endpoint 
+const pathDetalleVenta = "/api/v1/ventas/1"; //  cambiar el 1 por el ID que yo quiera ver
 
-// Función genérica para hacer fetch a la API
+
 async function api(path, options = {}) {
     const response = await fetch(path, {
         headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
@@ -14,26 +14,25 @@ async function api(path, options = {}) {
     return payload?.data;
 }
 
-// Función principal para renderizar los detalles en la tabla
+
 async function renderDetalleVenta() {
     const body = document.querySelector("#table-body");
     if (!body) return;
     
     try {
-        // Pide los datos de la venta al servidor backend
+        
         const venta = await api(pathDetalleVenta);
         
-        // Limpia la tabla antes de insertar nuevos datos
+      
         body.replaceChildren();
 
-        // Generalmente la API te devuelve la cabecera de la venta y un arreglo de 'detalles'
-        // Recorremos cada producto que compone esa venta
+     
         const detalles = venta.detalles || [];
 
         detalles.forEach(det => {
             const row = document.createElement("tr");
 
-            // Mapeamos las propiedades típicas de un detalle de venta (producto, cantidad, precio, etc.)
+         
             [
                 det.productoId, 
                 det.nombreProducto || det.producto || "Producto", 
@@ -53,5 +52,5 @@ async function renderDetalleVenta() {
     }
 }
 
-// Ejecuta la función al cargar el script
+
 renderDetalleVenta();

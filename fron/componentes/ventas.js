@@ -6,12 +6,12 @@ const currency = new Intl.NumberFormat("en-US", {
 const body = document.querySelector("#table-body");
 
 function normalize(value) {
-    return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
 async function render() {
   const filteredBD = await api(path);
-//  let filtered = ventasBD.data;
+  //  let filtered = ventasBD.data;
   body.replaceChildren();
 
   filteredBD.forEach(venta => {
@@ -40,5 +40,5 @@ async function api(path, options = {}) {
   }
   return payload?.data;
 }
-    
+
 render();

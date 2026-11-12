@@ -7,35 +7,31 @@
     <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-    <main class="card" aria-labelledby="table-tittle">
+    <main class="card">
         <header class="card-header">
-            <h1 id="table-tittle">Lista de Ventas</h1>
+            <h1>Lista de Ventas</h1>
         </header>
         <div class="card-body">
-            <div class="toolbar"></div>
-            <div class="table-cntainer" role="region" aria-label="Employees" tab-index="0">
+            <div class="table-container">
                 <table>
                     <thead>
+                        <tr>
                             <th>Cliente</th>
                             <th>Fecha Venta</th>
                             <th>Estado</th>
                             <th>Total</th>
+                        </tr>
                     </thead>
                     <tbody id="table-body">
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>$162,700</td>
-                        </tr>
+                        <!-- JavaScript inyectará las filas aquí -->
                     </tbody>
                 </table>
             </div>
-            <div class="table-footer"></div>
         </div>
     </main>
+    <script src="./componentes/ventas.js"></script>
+    
+    
+   
 </body>
 </html>
-
-<script src="./componentes/ventas.js"></script>
-<script src="./BD/Ventas.js"></script>
